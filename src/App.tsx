@@ -1,12 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import { Counter } from "./features/counter/Counter";
+import "./App.css";
+import { showNav } from "./features/layout/layoutSlice";
+import { useAppDispatch } from "./app/hooks";
+import { Navbar } from "./features/layout/Navbar";
 
 function App() {
+  const dispatch = useAppDispatch();
   return (
     <div className="App">
+      <Navbar />
       <header className="App-header">
+        <button onClick={() => dispatch(showNav())}> Show Nav</button>
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>
